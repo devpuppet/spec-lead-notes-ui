@@ -1,12 +1,12 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
     <p>
-        <label for="login">Login</label>
-        <input type="text" id="login" name="login" formControlName="login" class="form-control">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" formControlName="username" class="form-control">
     </p>
 
     <p>
         <label for="password">Password</label>
-        <input type="text" id="password" name="password" formControlName="password" class="form-control">
+        <input type="password" id="password" name="password" formControlName="password" class="form-control">
     </p>
 
     <p>
