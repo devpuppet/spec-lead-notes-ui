@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Unit } from 'src/app/model/unit.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class UnitsService {
 
   constructor(private http: HttpClient) { }
 
-  getUnits() {
-    return this.http.get(`${this.apiBaseUrl}/units`);
+  getUnit(userId: string): Observable<Unit> {
+    return this.http.get<Unit>(`${this.apiBaseUrl}/${userId}/unit`);
   }
 }

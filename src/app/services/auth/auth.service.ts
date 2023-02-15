@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { map, Observable, shareReplay } from 'rxjs';
-import { AuthResult } from './auth.service.model';
+import { AuthResult } from '../../model/auth.service.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,7 @@ export class AuthService {
   private setSession(authResult: AuthResult) {
     const expiresAt = moment().add(authResult.expiresIn, 'second');
 
+    localStorage.setItem('userId', authResult.userId);
     localStorage.setItem('id_token', authResult.jwtBearerToken);
     localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
   }
