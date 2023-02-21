@@ -8,12 +8,18 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { HeaderComponent } from './components/header/header.component';
+import { SummaryComponent } from './components/summary/summary.component';
+import { PeopleComponent } from './components/people/people.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent,
+    SummaryComponent,
+    PeopleComponent
   ],
   imports: [
     BrowserModule,

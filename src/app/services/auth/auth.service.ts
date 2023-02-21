@@ -34,18 +34,19 @@ export class AuthService {
   }
 
   public isLoggedIn(): boolean {
-    return moment().isBefore(this.getExpiration());
+    const expiration = this.getExpiration();
+    return !!expiration && moment().isBefore(expiration);
   }
 
   isLoggedOut() {
     return !this.isLoggedIn();
   }
 
-  getExpiration(): moment.Moment {
+  getExpiration(): moment.Moment | null {
     const expiration = localStorage.getItem('expires_at');
 
     if (!expiration) {
-      throw new Error('No expires_at found');
+      return null;
     }
 
     const expiresAt = JSON.parse(expiration);
