@@ -11,6 +11,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { HeaderComponent } from './components/header/header.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { PeopleComponent } from './components/people/people.component';
+import { UnitComponent } from './components/unit/unit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PeopleComponent } from './components/people/people.component';
     HomeComponent,
     HeaderComponent,
     SummaryComponent,
-    PeopleComponent
+    PeopleComponent,
+    UnitComponent
   ],
   imports: [
     BrowserModule,

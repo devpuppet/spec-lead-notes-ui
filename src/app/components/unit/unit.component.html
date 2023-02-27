@@ -1,0 +1,8 @@
+<p>
+    {{ unitData.name }}
+</p>
+<ul class="list-group">
+    <li *ngFor="let person of unitData.people" class="list-group-item">
+        <p>{{ person.name }}</p>
+    </li>
+</ul>

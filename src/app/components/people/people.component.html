@@ -1,1 +1,7 @@
-<p>people works!</p>
+<ul class="list-group">
+    <li *ngFor="let unit of ($units | async)" class="list-group-item">
+        <app-unit [unitData]="unit"></app-unit>
+    </li>
+</ul>
+
+<pre> {{ $units | async | json }}</pre>

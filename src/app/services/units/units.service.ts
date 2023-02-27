@@ -12,7 +12,7 @@ export class UnitsService {
 
   constructor(private http: HttpClient) { }
 
-  getUnit(userId: string): Observable<Unit> {
-    return this.http.get<Unit>(`${this.apiBaseUrl}/${userId}/unit`);
+  getUnits(userId: string): Observable<Unit[]> {
+    return this.http.get<Unit[]>(`${this.apiBaseUrl}/${userId}/units`);
   }
 }

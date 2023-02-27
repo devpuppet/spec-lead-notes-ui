@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Unit } from 'src/app/model/unit.model';
-import { UnitsService } from 'src/app/services/units/units.service';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: 'app-home',
@@ -10,18 +7,9 @@ import { UnitsService } from 'src/app/services/units/units.service';
 })
 export class HomeComponent implements OnInit {
 
-  $unit!: Observable<Unit>;
-
-  constructor(private unitsService: UnitsService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    const userId = localStorage.getItem('userId');
-
-    if (!userId) {
-      throw new Error('userId not found in localStorage');
-    }
-
-    this.$unit = this.unitsService.getUnit(userId);
   }
 
 }
