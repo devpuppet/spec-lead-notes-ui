@@ -2,11 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as moment from 'moment';
 import { map, Observable, shareReplay } from 'rxjs';
-import { AuthResult } from '../../model/auth.service.model';
+import { AuthResult } from '../../models/auth.service.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
 
   private apiBaseUrl = 'http://localhost:3000';
