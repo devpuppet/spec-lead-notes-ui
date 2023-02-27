@@ -7,10 +7,9 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { SummaryComponent } from './components/summary/summary.component';
-import { PeopleComponent } from './components/people/people.component';
-import { UnitComponent } from './components/unit/unit.component';
 import { LoginModule } from './login/login.module';
 import { AuthModule } from './auth/auth.module';
+import { PeopleModule } from './people/people.module';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,6 @@ import { AuthModule } from './auth/auth.module';
     HomeComponent,
     HeaderComponent,
     SummaryComponent,
-    PeopleComponent,
-    UnitComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +24,8 @@ import { AuthModule } from './auth/auth.module';
     ReactiveFormsModule,
     HttpClientModule,
     LoginModule,
-    AuthModule
+    AuthModule,
+    PeopleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
