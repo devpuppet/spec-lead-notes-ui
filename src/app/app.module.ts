@@ -6,17 +6,16 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
-import { SummaryComponent } from './components/summary/summary.component';
 import { LoginModule } from './login/login.module';
 import { AuthModule } from './auth/auth.module';
 import { PeopleModule } from './people/people.module';
+import { SummaryModule } from './summary/summary.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent,
-    SummaryComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +24,8 @@ import { PeopleModule } from './people/people.module';
     HttpClientModule,
     LoginModule,
     AuthModule,
-    PeopleModule
+    PeopleModule,
+    SummaryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
