@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Unit } from 'src/app/model/unit.model';
-import { UnitsService } from 'src/app/services/units/units.service';
+import { Unit } from 'src/app/people/models/unit.model';
+import { UnitsService } from '../../services/units.service';
 
 @Component({
   selector: 'app-people',

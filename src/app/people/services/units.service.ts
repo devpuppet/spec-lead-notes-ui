@@ -1,11 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Unit } from 'src/app/model/unit.model';
+import { Unit } from 'src/app/people/models/unit.model';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UnitsService {
 
   private apiBaseUrl = 'http://localhost:3000';
