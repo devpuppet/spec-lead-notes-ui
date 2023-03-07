@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Unit } from 'src/app/people/models/unit.model';
+import { Unit } from 'src/app/home/people/models/unit.model';
 
 @Injectable()
 export class UnitsService {

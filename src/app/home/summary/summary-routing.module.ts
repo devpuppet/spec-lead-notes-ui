@@ -3,11 +3,11 @@ import { Routes, RouterModule } from "@angular/router";
 import { SummaryComponent } from "./components/summary/summary.component";
 
 const routes: Routes = [
-    { path: 'summary', component: SummaryComponent }
+    { path: '', component: SummaryComponent }
 ];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class SummaryRoutingModule { }

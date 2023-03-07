@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Unit } from 'src/app/people/models/unit.model';
+import { Unit } from 'src/app/home/people/models/unit.model';
 
 @Component({
   selector: 'app-unit',
