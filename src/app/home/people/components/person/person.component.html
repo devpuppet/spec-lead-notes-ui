@@ -1,0 +1,8 @@
+<div>
+    <p>{{ personData.name }}</p>
+    <ul class="list-group">
+        <li *ngFor="let meeting of personData.meetings" class="list-group-item">
+            <app-meeting [meetingData]="meeting"></app-meeting>
+        </li>
+    </ul>
+</div>

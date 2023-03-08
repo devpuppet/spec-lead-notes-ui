@@ -3,6 +3,6 @@
 </p>
 <ul class="list-group">
     <li *ngFor="let person of unitData.people" class="list-group-item">
-        <p>{{ person.name }} - {{ person.meetings | json }}</p>
+        <app-person [personData]="person"></app-person>
     </li>
 </ul>
