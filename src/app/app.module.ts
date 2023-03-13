@@ -7,6 +7,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginModule } from './login/login.module';
 import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { HomeModule } from './home/home.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgMaterialModule } from './ng-material/ng-material.module';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,10 @@ import { HomeModule } from './home/home.module';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     HomeModule,
     LoginModule,
+    NgMaterialModule
   ],
   providers: [
     {
