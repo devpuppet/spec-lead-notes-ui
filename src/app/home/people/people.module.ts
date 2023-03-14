@@ -6,17 +6,21 @@ import { PeopleRoutingModule } from "./people-routing.module";
 import { UnitsService } from "./services/units.service";
 import { PersonComponent } from './components/person/person.component';
 import { MeetingComponent } from './components/meeting/meeting.component';
+import { NgMaterialModule } from "src/app/ng-material/ng-material.module";
+import { AddMeetingModalComponent } from "./components/add-meeting-modal/add-meeting-modal.component";
 
 @NgModule({
     declarations: [
         PeopleComponent,
         UnitComponent,
         PersonComponent,
-        MeetingComponent
+        MeetingComponent,
+        AddMeetingModalComponent
     ],
     imports: [
         CommonModule,
-        PeopleRoutingModule
+        PeopleRoutingModule,
+        NgMaterialModule
     ],
     providers: [UnitsService],
 })
