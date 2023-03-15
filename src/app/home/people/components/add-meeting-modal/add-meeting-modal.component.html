@@ -3,7 +3,7 @@
     <form (submit)="$event.preventDefault()">
 
         <mat-form-field appearance="fill">
-            <mat-label>Impact: </mat-label>
+            <mat-label>Impact</mat-label>
             <mat-select>
               <mat-option *ngFor="let impact of impactValues" [value]="impact">
                 {{ impact }}
@@ -12,7 +12,7 @@
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-            <mat-label>Attrition Risk: </mat-label>
+            <mat-label>Attrition Risk</mat-label>
             <mat-select>
               <mat-option *ngFor="let attrition of attritionRiskValues" [value]="attrition">
                 {{ attrition }}
@@ -20,8 +20,17 @@
             </mat-select>
         </mat-form-field>
 
+        <mat-form-field appearance="fill">
+            <mat-label>Attrition Reason</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let reason of attritionReasons" [value]="reason">
+                {{ reason }}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
         <mat-form-field>
-            <mat-label>Comment: </mat-label>
+            <mat-label>Comment</mat-label>
             <textarea matInput
             cdkTextareaAutosize
             cdkAutosizeMinRows="1"
