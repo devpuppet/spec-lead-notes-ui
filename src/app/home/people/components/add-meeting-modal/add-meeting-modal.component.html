@@ -1,11 +1,24 @@
 <mat-dialog-content>
     <h3>Add Meeting Notes</h3>
     <form (submit)="$event.preventDefault()">
-        <mat-label>Comment: </mat-label>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Impact: </mat-label>
+            <mat-select>
+              <mat-option *ngFor="let impact of impactValues" [value]="impact">
+                {{ impact }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Comment: </mat-label>
             <textarea matInput
             cdkTextareaAutosize
             cdkAutosizeMinRows="1"
             cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+          
         <button mat-raised-button>Submit</button>
     </form>
 </mat-dialog-content>

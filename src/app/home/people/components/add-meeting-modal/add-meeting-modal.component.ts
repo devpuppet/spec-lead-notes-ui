@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddMeetingModalComponent implements OnInit {
 
+  impactValues = ['Low', 'Medium', 'High'];
+
   constructor() { }
 
   ngOnInit(): void {
