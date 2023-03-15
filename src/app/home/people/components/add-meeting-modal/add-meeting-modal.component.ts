@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AddMeetingModalComponent implements OnInit {
 
   impactValues = ['Low', 'Medium', 'High'];
+  attritionRiskValues = ['No Risk', 'Low', 'Medium', 'High'];
 
   constructor() { }
 

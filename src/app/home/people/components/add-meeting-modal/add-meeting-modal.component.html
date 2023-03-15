@@ -9,16 +9,25 @@
                 {{ impact }}
               </mat-option>
             </mat-select>
-          </mat-form-field>
+        </mat-form-field>
 
-          <mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Attrition Risk: </mat-label>
+            <mat-select>
+              <mat-option *ngFor="let attrition of attritionRiskValues" [value]="attrition">
+                {{ attrition }}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
             <mat-label>Comment: </mat-label>
             <textarea matInput
             cdkTextareaAutosize
             cdkAutosizeMinRows="1"
             cdkAutosizeMaxRows="5"></textarea>
-          </mat-form-field>
-          
+        </mat-form-field>
+
         <button mat-raised-button>Submit</button>
     </form>
 </mat-dialog-content>
