@@ -83,6 +83,15 @@
             </mat-select>
         </mat-form-field>
 
+        <mat-form-field appearance="fill">
+            <mat-label>1-1 Sent</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let sent of ['Yes', 'No']" [value]="sent">
+                {{ sent }}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
         <button mat-raised-button>Submit</button>
     </form>
 </mat-dialog-content>

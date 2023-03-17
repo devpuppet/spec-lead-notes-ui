@@ -5,6 +5,7 @@ import { TextFieldModule } from '@angular/cdk/text-field'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const modules = [
   MatDialogModule,
@@ -12,7 +13,8 @@ const modules = [
   TextFieldModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSelectModule
+  MatSelectModule,
+  MatCheckboxModule
 ]
 
 @NgModule({
