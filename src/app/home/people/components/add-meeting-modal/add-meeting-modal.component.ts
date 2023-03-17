@@ -7,13 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddMeetingModalComponent implements OnInit {
 
-  impactValues = ['Low', 'Medium', 'High'];
+  cdkAutosizeMinRows = 1;
+  cdkAutosizeMaxRows = 4;
   attritionRiskValues = ['No Risk', 'Low', 'Medium', 'High'];
-  attritionReasons = [
-    'Change of career track',
-    'Compensation',
-    'Dissatisfaction with management',
-  ];
 
   constructor() { }
 

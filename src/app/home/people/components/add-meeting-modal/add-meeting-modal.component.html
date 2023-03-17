@@ -2,13 +2,76 @@
     <h3>Add Meeting Notes</h3>
     <form (submit)="$event.preventDefault()">
 
-        <mat-form-field appearance="fill">
-            <mat-label>Impact</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let impact of impactValues" [value]="impact">
-                {{ impact }}
-              </mat-option>
-            </mat-select>
+        <mat-form-field>
+            <mat-label>Comments</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Questions</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>My Action Items</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Their Action Items</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Important Agreements</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Satisfaction</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Plans</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Feedback</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Issues</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
@@ -18,23 +81,6 @@
                 {{ attrition }}
               </mat-option>
             </mat-select>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-            <mat-label>Attrition Reason</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let reason of attritionReasons" [value]="reason">
-                {{ reason }}
-              </mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>Comment</mat-label>
-            <textarea matInput
-            cdkTextareaAutosize
-            cdkAutosizeMinRows="1"
-            cdkAutosizeMaxRows="5"></textarea>
         </mat-form-field>
 
         <button mat-raised-button>Submit</button>
