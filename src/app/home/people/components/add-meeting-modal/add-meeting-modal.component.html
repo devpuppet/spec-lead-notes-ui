@@ -1,13 +1,14 @@
 <mat-dialog-content>
     <h3>Add Meeting Notes</h3>
-    <form (submit)="$event.preventDefault()">
+    <form [formGroup]="meetingForm" (ngSubmit)="onSubmit()" novalidate>
 
         <mat-form-field>
             <mat-label>Comments</mat-label>
             <textarea matInput
             cdkTextareaAutosize
             [cdkAutosizeMinRows]="cdkAutosizeMinRows"
-            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="comments"></textarea>
         </mat-form-field>
 
         <mat-form-field>
@@ -15,7 +16,8 @@
             <textarea matInput
             cdkTextareaAutosize
             [cdkAutosizeMinRows]="cdkAutosizeMinRows"
-            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="questions"></textarea>
         </mat-form-field>
 
         <mat-form-field>
@@ -23,7 +25,8 @@
             <textarea matInput
             cdkTextareaAutosize
             [cdkAutosizeMinRows]="cdkAutosizeMinRows"
-            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="managerActionItems"></textarea>
         </mat-form-field>
 
         <mat-form-field>
@@ -31,7 +34,8 @@
             <textarea matInput
             cdkTextareaAutosize
             [cdkAutosizeMinRows]="cdkAutosizeMinRows"
-            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="subordinateActionItems"></textarea>
         </mat-form-field>
 
         <mat-form-field>
@@ -39,7 +43,8 @@
             <textarea matInput
             cdkTextareaAutosize
             [cdkAutosizeMinRows]="cdkAutosizeMinRows"
-            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="importantAgreements"></textarea>
         </mat-form-field>
 
         <mat-form-field>
@@ -47,7 +52,8 @@
             <textarea matInput
             cdkTextareaAutosize
             [cdkAutosizeMinRows]="cdkAutosizeMinRows"
-            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="satisfaction"></textarea>
         </mat-form-field>
 
         <mat-form-field>
@@ -55,7 +61,8 @@
             <textarea matInput
             cdkTextareaAutosize
             [cdkAutosizeMinRows]="cdkAutosizeMinRows"
-            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="plans"></textarea>
         </mat-form-field>
 
         <mat-form-field>
@@ -63,7 +70,8 @@
             <textarea matInput
             cdkTextareaAutosize
             [cdkAutosizeMinRows]="cdkAutosizeMinRows"
-            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="feedback"></textarea>
         </mat-form-field>
 
         <mat-form-field>
@@ -71,12 +79,13 @@
             <textarea matInput
             cdkTextareaAutosize
             [cdkAutosizeMinRows]="cdkAutosizeMinRows"
-            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"></textarea>
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="issues"></textarea>
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Attrition Risk</mat-label>
-            <mat-select>
+            <mat-select formControlName="attritionRisk">
               <mat-option *ngFor="let attrition of attritionRiskValues" [value]="attrition">
                 {{ attrition }}
               </mat-option>
@@ -85,7 +94,7 @@
 
         <mat-form-field appearance="fill">
             <mat-label>1-1 Sent</mat-label>
-            <mat-select>
+            <mat-select formControlName="oneToOneReportSent">
               <mat-option *ngFor="let sent of ['Yes', 'No']" [value]="sent">
                 {{ sent }}
               </mat-option>
