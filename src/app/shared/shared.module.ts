@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { YesNoToBooleanMapper } from "./mappers/yes-no.mapper";
 import { AuthService } from "./services/auth/auth.service";
 import { AuthGuardService } from "./services/guards/auth-guard.service";
 
@@ -10,7 +11,11 @@ import { AuthGuardService } from "./services/guards/auth-guard.service";
     ],
     providers: [
         AuthService,
-        AuthGuardService
+        AuthGuardService,
+        {
+            provide: YesNoToBooleanMapper,
+            useClass: YesNoToBooleanMapper
+        }
     ],
     exports: []
 })

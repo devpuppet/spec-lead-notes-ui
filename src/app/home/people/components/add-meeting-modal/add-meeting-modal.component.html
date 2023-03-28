@@ -1,5 +1,5 @@
 <mat-dialog-content>
-    <h3>Add Meeting Notes</h3>
+    <h3>Add Meeting Notes for {{ personData.name }}</h3>
     <form [formGroup]="meetingForm" (ngSubmit)="onSubmit()" novalidate>
 
         <mat-form-field>

@@ -5,6 +5,7 @@ export interface Unit {
 }
 
 export interface Person {
+    id: string;
     name: string;
     meetings: Meeting[];
 }

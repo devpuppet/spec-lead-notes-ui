@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { YesNoToBooleanMapper } from 'src/app/shared/mappers/yes-no.mapper';
 import { AttritionRisk, MeetingNotes } from '../../models/meeting-notes.model';
 import { PersonService } from '../../services/person.service';
 
@@ -13,9 +15,20 @@ export class AddMeetingModalComponent {
   meetingForm: FormGroup;
   cdkAutosizeMinRows = 1;
   cdkAutosizeMaxRows = 4;
-  attritionRiskValues = [AttritionRisk.NONE, AttritionRisk.LOW, AttritionRisk.MEDIUM, AttritionRisk.HIGH];
+  attritionRiskValues = [
+    AttritionRisk.NONE,
+    AttritionRisk.LOW,
+    AttritionRisk.MEDIUM,
+    AttritionRisk.HIGH
+  ];
+  personData: { id: string, name: string }
 
-  constructor(private formBuilder: FormBuilder, private personService: PersonService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private personService: PersonService,
+    @Optional() @Inject(MAT_DIALOG_DATA) private data: any,
+    private yesNoMapper: YesNoToBooleanMapper
+    ) {
     this.meetingForm = this.formBuilder.group({
       comments: [''],
       questions: [''],
@@ -29,6 +42,7 @@ export class AddMeetingModalComponent {
       attritionRisk: [AttritionRisk.LOW],
       oneToOneReportSent: ['No']
     });
+    this.personData = data;
   }
 
   get comments() {
@@ -77,7 +91,7 @@ export class AddMeetingModalComponent {
 
   onSubmit() {
     const meetingNotes: MeetingNotes = {
-      personId: "1",
+      personId: this.personData.id,
       comments: this.comments,
       questions: this.questions,
       managerActionItems: this.managerActionItems,
@@ -88,7 +102,7 @@ export class AddMeetingModalComponent {
       feedback: this.feedback,
       issues: this.issues,
       attritionRisk: this.attritionRisk,
-      oneToOneReportSent: this.oneToOneReportSent
+      oneToOneReportSent: this.yesNoMapper.toClient(this.oneToOneReportSent)
     }
     console.log(meetingNotes);
   }

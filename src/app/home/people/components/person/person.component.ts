@@ -19,7 +19,9 @@ export class PersonComponent implements OnInit {
   }
 
   openAddMeetingModal() {
-    const addMeetingModal = this.dialog.open(AddMeetingModalComponent);
+    const addMeetingModal = this.dialog.open(AddMeetingModalComponent, {
+      data: { id: this.personData.id, name: this.personData.name }
+    });
 
     addMeetingModal.afterClosed().subscribe(data => {
       console.log('Data from Modal', data);
