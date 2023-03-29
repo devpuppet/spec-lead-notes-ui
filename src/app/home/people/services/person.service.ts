@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { MeetingNotes } from '../models/meeting-notes.model';
 
 @Injectable({
@@ -11,8 +12,8 @@ export class PersonService {
 
   constructor(private http: HttpClient) { }
 
-  addMeetingNotes(unitId: string, meetingNotes: MeetingNotes) {
-    this.http.post(`${this.apiBaseUrl}/person`, meetingNotes, {
+  addMeetingNotes(unitId: string, meetingNotes: MeetingNotes): Observable<MeetingNotes> {
+    return this.http.post<MeetingNotes>(`${this.apiBaseUrl}/person`, meetingNotes, {
       params: { unitId: unitId }
     })
   }

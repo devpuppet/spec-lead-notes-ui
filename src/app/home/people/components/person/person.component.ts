@@ -12,6 +12,8 @@ export class PersonComponent implements OnInit {
 
   @Input()
   personData!: Person;
+  @Input()
+  unitId!: string;
 
   constructor(private dialog: MatDialog) { }
 
@@ -20,7 +22,7 @@ export class PersonComponent implements OnInit {
 
   openAddMeetingModal() {
     const addMeetingModal = this.dialog.open(AddMeetingModalComponent, {
-      data: { id: this.personData.id, name: this.personData.name }
+      data: { id: this.personData.id, name: this.personData.name, unitId: this.unitId }
     });
 
     addMeetingModal.afterClosed().subscribe(data => {

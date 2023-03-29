@@ -17,3 +17,7 @@ export interface MeetingNotes {
 export enum AttritionRisk {
     NONE = 'None', LOW = 'Low', MEDIUM = 'Medium', HIGH = 'High'
 }
+
+export enum YesNo {
+    YES = 'Yes', NO = 'No'
+}

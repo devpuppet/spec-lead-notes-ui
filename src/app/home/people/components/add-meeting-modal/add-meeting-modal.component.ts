@@ -1,8 +1,9 @@
-import { Component, Inject, OnInit, Optional } from '@angular/core';
+import { Component, Inject, OnDestroy, Optional } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 import { YesNoToBooleanMapper } from 'src/app/shared/mappers/yes-no.mapper';
-import { AttritionRisk, MeetingNotes } from '../../models/meeting-notes.model';
+import { AttritionRisk, MeetingNotes, YesNo } from '../../models/meeting-notes.model';
 import { PersonService } from '../../services/person.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { PersonService } from '../../services/person.service';
   templateUrl: './add-meeting-modal.component.html',
   styleUrls: ['./add-meeting-modal.component.css']
 })
-export class AddMeetingModalComponent {
+export class AddMeetingModalComponent implements OnDestroy {
 
   meetingForm: FormGroup;
   cdkAutosizeMinRows = 1;
@@ -21,13 +22,14 @@ export class AddMeetingModalComponent {
     AttritionRisk.MEDIUM,
     AttritionRisk.HIGH
   ];
-  personData: { id: string, name: string }
+  addMeetingNotes$?: Subscription;
 
   constructor(
+    private dialogRef: MatDialogRef<AddMeetingModalComponent>,
     private formBuilder: FormBuilder,
     private personService: PersonService,
-    @Optional() @Inject(MAT_DIALOG_DATA) private data: any,
-    private yesNoMapper: YesNoToBooleanMapper
+    private yesNoMapper: YesNoToBooleanMapper,
+    @Optional() @Inject(MAT_DIALOG_DATA) protected personData: { id: string, name: string, unitId: string }
     ) {
     this.meetingForm = this.formBuilder.group({
       comments: [''],
@@ -39,10 +41,13 @@ export class AddMeetingModalComponent {
       plans: [''],
       feedback: [''],
       issues: [''],
-      attritionRisk: [AttritionRisk.LOW],
-      oneToOneReportSent: ['No']
+      attritionRisk: [AttritionRisk.NONE],
+      oneToOneReportSent: [YesNo.NO]
     });
-    this.personData = data;
+  }
+
+  ngOnDestroy(): void {
+    this.addMeetingNotes$?.unsubscribe();
   }
 
   get comments() {
@@ -104,7 +109,9 @@ export class AddMeetingModalComponent {
       attritionRisk: this.attritionRisk,
       oneToOneReportSent: this.yesNoMapper.toClient(this.oneToOneReportSent)
     }
-    console.log(meetingNotes);
+
+    this.addMeetingNotes$ = this.personService.addMeetingNotes(this.personData.unitId, meetingNotes)
+      .subscribe(response => this.dialogRef.close({ meetingNotes }));
   }
 
 }

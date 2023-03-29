@@ -3,6 +3,6 @@
 </p>
 <ul class="list-group">
     <li *ngFor="let person of unitData.people" class="list-group-item">
-        <app-person [personData]="person"></app-person>
+        <app-person [personData]="person" [unitId]="unitData.id"></app-person>
     </li>
 </ul>
