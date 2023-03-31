@@ -3,9 +3,12 @@ import { NgModule } from "@angular/core";
 import { YesNoToBooleanMapper } from "./mappers/yes-no.mapper";
 import { AuthService } from "./services/auth/auth.service";
 import { AuthGuardService } from "./services/guards/auth-guard.service";
+import { YesNoPipe } from './pipes/yes-no.pipe';
 
 @NgModule({
-    declarations: [],
+    declarations: [
+    YesNoPipe
+  ],
     imports: [
         CommonModule
     ],
@@ -17,6 +20,8 @@ import { AuthGuardService } from "./services/guards/auth-guard.service";
             useClass: YesNoToBooleanMapper
         }
     ],
-    exports: []
+    exports: [
+        YesNoPipe
+    ]
 })
 export class SharedModule { }

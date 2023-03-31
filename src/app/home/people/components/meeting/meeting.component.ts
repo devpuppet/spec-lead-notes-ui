@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Meeting } from '../../models/unit.model';
+import { MeetingNotes } from '../../models/meeting-notes.model';
 
 @Component({
   selector: 'app-meeting',
@@ -9,7 +9,7 @@ import { Meeting } from '../../models/unit.model';
 export class MeetingComponent implements OnInit {
 
   @Input()
-  meetingData!: Meeting;
+  meetingData!: MeetingNotes;
 
   constructor() { }
 

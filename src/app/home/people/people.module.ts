@@ -9,6 +9,7 @@ import { MeetingComponent } from './components/meeting/meeting.component';
 import { NgMaterialModule } from "src/app/ng-material/ng-material.module";
 import { AddMeetingModalComponent } from "./components/add-meeting-modal/add-meeting-modal.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { SharedModule } from "src/app/shared/shared.module";
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule } from "@angular/forms";
         CommonModule,
         PeopleRoutingModule,
         NgMaterialModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        SharedModule
     ],
     providers: [UnitsService],
 })

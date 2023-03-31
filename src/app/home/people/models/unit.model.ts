@@ -1,3 +1,5 @@
+import { MeetingNotes } from "./meeting-notes.model";
+
 export interface Unit {
     id: string;
     name: string;
@@ -7,11 +9,5 @@ export interface Unit {
 export interface Person {
     id: string;
     name: string;
-    meetings: Meeting[];
-}
-
-export interface Meeting {
-    comment: string;
-    attrition: string;
-    date: string
+    meetings: MeetingNotes[];
 }
