@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { AddMeetingModalComponent } from 'src/app/home/people/components/add-meeting-modal/add-meeting-modal.component';
 import { Person } from '../../models/unit.model';
+import { ModalService } from '../../services/modal.service';
 
 @Component({
   selector: 'app-person',
@@ -15,19 +15,19 @@ export class PersonComponent implements OnInit {
   @Input()
   unitId!: string;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private modalService: ModalService) { }
 
   ngOnInit(): void {
   }
 
   openAddMeetingModal() {
-    const addMeetingModal = this.dialog.open(AddMeetingModalComponent, {
+    this.modalService
+    .open(AddMeetingModalComponent, {
       data: { id: this.personData.id, name: this.personData.name, unitId: this.unitId }
-    });
-
-    addMeetingModal.afterClosed().subscribe(data => {
-      console.log('Data from Modal', data);
     })
+    .subscribe({ 
+      afterClosed: data => console.log('Data from Modal', data)
+    });
   }
 
 }
