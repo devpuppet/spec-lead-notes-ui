@@ -1,7 +1,14 @@
 <div>
-    <p>{{ personData.name }}</p>
+    <p class="h4">{{ personData.name }}</p>
+    <div>
+        <ul class="list-inline">
+            <li *ngFor="let page of pagination.pages; let i = index" class="list-inline-item">
+                <button mat-button (click)="updatePageNumber(i)">{{ i + 1 }}</button>
+            </li>
+        </ul>
+    <div>
     <ul class="list-group">
-        <li *ngFor="let meeting of personData.meetings" class="list-group-item">
+        <li *ngFor="let meeting of pagination.pages[pagination.config.currentPageIndex].data" class="list-group-item">
             <app-meeting [meetingData]="meeting"></app-meeting>
         </li>
     </ul>
