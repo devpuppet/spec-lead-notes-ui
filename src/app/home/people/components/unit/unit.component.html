@@ -1,5 +1,5 @@
-<p>
-    {{ unitData.name }}
+<p class="h3">
+    Unit Name: {{ unitData.name | uppercase }}
 </p>
 <ul class="list-group">
     <li *ngFor="let person of unitData.people" class="list-group-item">
