@@ -1,0 +1,20 @@
+<div class="person-tooltip container-xl" [style.left]="left+ 'px'" [style.top]="top+ 'px'">
+
+    <div class="list-group">
+        <dl class="row list-group-item" *ngIf="personData.grade">
+            <dt class="col-sm-6">Grade</dt>
+            <dd class="col-sm-6">{{ personData.grade }}</dd>
+        </dl>
+
+        <dl class="row list-group-item" *ngIf="personData.location">
+            <dt class="col-sm-6">Location</dt>
+            <dd class="col-sm-6">{{ personData.location }}</dd>
+        </dl>
+    
+        <dl class="row list-group-item" *ngIf="personData.specializations">
+            <dt class="col-sm-6">Specializations</dt>
+            <dd class="col-sm-6">{{ personData.specializations }}</dd>
+        </dl>
+    </div>
+    
+</div>

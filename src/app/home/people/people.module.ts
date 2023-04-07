@@ -10,6 +10,8 @@ import { NgMaterialModule } from "src/app/ng-material/ng-material.module";
 import { AddMeetingModalComponent } from "./components/add-meeting-modal/add-meeting-modal.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { SharedModule } from "src/app/shared/shared.module";
+import { PersonTooltipDirective } from "./directives/person.tooltip.directive";
+import { PersonTooltipComponent } from './components/person-tooltip/person-tooltip.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +19,9 @@ import { SharedModule } from "src/app/shared/shared.module";
         UnitComponent,
         PersonComponent,
         MeetingComponent,
-        AddMeetingModalComponent
+        AddMeetingModalComponent,
+        PersonTooltipDirective,
+        PersonTooltipComponent
     ],
     imports: [
         CommonModule,

@@ -9,5 +9,8 @@ export interface Unit {
 export interface Person {
     id: string;
     name: string;
+    grade: string;
+    specializations: string[];
+    location: string;
     meetings: MeetingNotes[];
 }
