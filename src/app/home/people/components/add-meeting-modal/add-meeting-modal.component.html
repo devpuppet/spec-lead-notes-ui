@@ -2,7 +2,7 @@
     <h3>Add Meeting Notes for {{ personData.name }}</h3>
     <form [formGroup]="meetingForm" (ngSubmit)="onSubmit()" novalidate>
 
-        <mat-form-field>
+        <mat-form-field appearance="fill">
             <mat-label>Comments</mat-label>
             <textarea matInput
             cdkTextareaAutosize
@@ -11,7 +11,7 @@
             formControlName="comments"></textarea>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="fill">
             <mat-label>Questions</mat-label>
             <textarea matInput
             cdkTextareaAutosize
@@ -20,7 +20,7 @@
             formControlName="questions"></textarea>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="fill">
             <mat-label>My Action Items</mat-label>
             <textarea matInput
             cdkTextareaAutosize
@@ -29,7 +29,7 @@
             formControlName="managerActionItems"></textarea>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="fill">
             <mat-label>Their Action Items</mat-label>
             <textarea matInput
             cdkTextareaAutosize
@@ -38,7 +38,7 @@
             formControlName="subordinateActionItems"></textarea>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="fill">
             <mat-label>Important Agreements</mat-label>
             <textarea matInput
             cdkTextareaAutosize
@@ -47,7 +47,7 @@
             formControlName="importantAgreements"></textarea>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="fill">
             <mat-label>Satisfaction</mat-label>
             <textarea matInput
             cdkTextareaAutosize
@@ -56,7 +56,7 @@
             formControlName="satisfaction"></textarea>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="fill">
             <mat-label>Plans</mat-label>
             <textarea matInput
             cdkTextareaAutosize
@@ -65,7 +65,7 @@
             formControlName="plans"></textarea>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="fill">
             <mat-label>Feedback</mat-label>
             <textarea matInput
             cdkTextareaAutosize
@@ -74,7 +74,7 @@
             formControlName="feedback"></textarea>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="fill">
             <mat-label>Issues</mat-label>
             <textarea matInput
             cdkTextareaAutosize
@@ -104,8 +104,3 @@
         <button mat-raised-button>Submit</button>
     </form>
 </mat-dialog-content>
-
-<mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button cdkFocusInitial>Save</button>
-</mat-dialog-actions>

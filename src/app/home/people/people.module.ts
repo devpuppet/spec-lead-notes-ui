@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { SharedModule } from "src/app/shared/shared.module";
 import { PersonTooltipDirective } from "./directives/person.tooltip.directive";
 import { PersonTooltipComponent } from './components/person-tooltip/person-tooltip.component';
+import { EditMeetingComponent } from './components/edit-meeting/edit-meeting.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { PersonTooltipComponent } from './components/person-tooltip/person-toolt
         MeetingComponent,
         AddMeetingModalComponent,
         PersonTooltipDirective,
-        PersonTooltipComponent
+        PersonTooltipComponent,
+        EditMeetingComponent
     ],
     imports: [
         CommonModule,

@@ -48,4 +48,6 @@
         <dt class="col-sm-3">1-1 Sent</dt>
         <dd class="col-sm-9">{{ meetingData.oneToOneReportSent | yesNo }}</dd>
     </dl>
+
+    <button mat-stroked-button color="primary" [routerLink]="['/people/meeting',meetingData.notesId]" [state]="meetingData">Edit</button>
 </div>
