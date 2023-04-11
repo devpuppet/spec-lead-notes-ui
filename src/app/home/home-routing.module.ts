@@ -11,10 +11,12 @@ const routes: Routes = [
         children: [
             {
                 path: 'people',
+                title: 'Meeting Notes',
                 loadChildren: () => import('./people/people.module').then(m => m.PeopleModule)
             },
             {
                 path: 'summary',
+                title: 'Summary',
                 loadChildren: () => import('./summary/summary.module').then(m => m.SummaryModule)
             }
         ]
