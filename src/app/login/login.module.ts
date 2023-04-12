@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { SharedModule } from "../shared/shared.module";
 import { LoginComponent } from "./components/login/login.component";
 import { LoginRoutingModule } from "./login-routing.module";
+import { NgMaterialModule } from "../ng-material/ng-material.module";
 
 @NgModule({
     declarations: [LoginComponent],
@@ -11,7 +12,8 @@ import { LoginRoutingModule } from "./login-routing.module";
         CommonModule,
         LoginRoutingModule,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        NgMaterialModule
     ],
     providers: [],
 })

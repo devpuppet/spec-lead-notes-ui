@@ -1,0 +1,14 @@
+.login-form, .error-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    padding: 10px;
+}

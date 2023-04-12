@@ -1,15 +1,23 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-    <p>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" formControlName="username" class="form-control">
-    </p>
+<div class="container login-form">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+        <p>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" formControlName="username" class="form-control">
+        </p>
+    
+        <p>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" formControlName="password" class="form-control">
+        </p>
+    
+        <p>
+            <button mat-raised-button color="primary" type="submit">Login</button>
+        </p>
 
-    <p>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" formControlName="password" class="form-control">
-    </p>
+    </form>
 
-    <p>
-        <button type="submit">Submit</button>
-    </p>
-</form>
+</div>
+
+<div *ngIf="loginError" class="error-container">
+    <app-error-box  [errorMessage]="errorMessage"></app-error-box>
+</div>

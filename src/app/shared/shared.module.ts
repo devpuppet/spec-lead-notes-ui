@@ -4,10 +4,12 @@ import { YesNoToBooleanMapper } from "./mappers/yes-no.mapper";
 import { AuthService } from "./services/auth/auth.service";
 import { AuthGuardService } from "./services/guards/auth-guard.service";
 import { YesNoPipe } from './pipes/yes-no.pipe';
+import { ErrorBoxComponent } from './components/error-box/error-box.component';
 
 @NgModule({
     declarations: [
-    YesNoPipe
+    YesNoPipe,
+    ErrorBoxComponent
   ],
     imports: [
         CommonModule
@@ -21,7 +23,8 @@ import { YesNoPipe } from './pipes/yes-no.pipe';
         }
     ],
     exports: [
-        YesNoPipe
+        YesNoPipe,
+        ErrorBoxComponent
     ]
 })
 export class SharedModule { }
