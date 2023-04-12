@@ -30,9 +30,10 @@ export class LoginComponent implements OnInit {
     if (val.username && val.password) {
       this.authService.login(val.username, val.password)
         .subscribe(resp => {
-          console.log('AuthService response:', resp);
           this.router.navigate(['']);
         })
+    } else {
+      alert('Please provide login and password');
     }
   }
 

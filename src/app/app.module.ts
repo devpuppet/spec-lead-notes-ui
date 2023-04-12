@@ -9,6 +9,8 @@ import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { HomeModule } from './home/home.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgMaterialModule } from './ng-material/ng-material.module';
+import { StoreModule } from '@ngrx/store';
+import { authReducer } from './login/store/login.reducer';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { NgMaterialModule } from './ng-material/ng-material.module';
     BrowserAnimationsModule,
     HomeModule,
     LoginModule,
-    NgMaterialModule
+    NgMaterialModule,
+    StoreModule.forRoot({ '[Auth] Login': authReducer })
   ],
   providers: [
     {

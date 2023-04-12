@@ -1,34 +1,46 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import * as moment from 'moment';
-import { map, Observable, shareReplay } from 'rxjs';
-import { AuthResult } from '../../models/auth.service.model';
+import { map, Observable, shareReplay, Subscription } from 'rxjs';
+import { AuthData } from '../../models/auth.service.model';
+import { Store } from '@ngrx/store';
+import { setAuthDataAction, removeAuthDataAction } from 'src/app/login/store/login.actions';
+import { selectExpiration } from 'src/app/login/store/login.selectors';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements OnDestroy {
 
   private apiBaseUrl = 'http://localhost:3000';
+  private expiration$?: Subscription;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private store: Store
+  ) { }
 
-  login(username: string, password: string): Observable<any> {
+  login(username: string, password: string): Observable<AuthData> {
     return this.http.post<any>(`${this.apiBaseUrl}/login`, { username, password }).pipe(
       map(res => this.setSession(res)),
       shareReplay()
     );
   }
 
-  private setSession(authResult: AuthResult) {
-    const expiresAt = moment().add(authResult.expiresIn, 'second');
+  private setSession(authResult: AuthData): AuthData {
+    const expiresIn = moment().add(authResult.expiresIn, 'second');
 
-    localStorage.setItem('userId', authResult.userId);
-    localStorage.setItem('id_token', authResult.jwtBearerToken);
-    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+    this.store.dispatch(setAuthDataAction({
+      authData: {
+        userId: authResult.userId,
+        jwtBearerToken: authResult.jwtBearerToken,
+        expiresIn: +JSON.stringify(expiresIn.valueOf())
+      }
+    }));
+
+    return authResult;
   }
 
   logout(): void {
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
+    this.store.dispatch(removeAuthDataAction());
   }
 
   public isLoggedIn(): boolean {
@@ -41,13 +53,20 @@ export class AuthService {
   }
 
   getExpiration(): moment.Moment | null {
-    const expiration = localStorage.getItem('expires_at');
+    let expiration;
+
+    this.expiration$ = this.store.select(selectExpiration)
+      .subscribe(value => expiration = value);
 
     if (!expiration) {
       return null;
     }
 
-    const expiresAt = JSON.parse(expiration);
-    return moment(expiresAt);
+    const expiresIn = JSON.parse(expiration);
+    return moment(expiresIn);
+  }
+
+  ngOnDestroy(): void {
+    this.expiration$?.unsubscribe();
   }
 }
