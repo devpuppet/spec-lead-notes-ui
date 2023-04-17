@@ -2,6 +2,8 @@
     <h3>Add Meeting Notes for {{ personData.name }}</h3>
     <form [formGroup]="meetingForm" (ngSubmit)="onSubmit()" novalidate>
 
+        <app-datepicker formControlName="date"></app-datepicker>
+
         <mat-form-field appearance="fill">
             <mat-label>Comments</mat-label>
             <textarea matInput
@@ -101,6 +103,6 @@
             </mat-select>
         </mat-form-field>
 
-        <button mat-raised-button>Submit</button>
+        <button mat-raised-button [disabled]="!meetingForm.valid">Submit</button>
     </form>
 </mat-dialog-content>

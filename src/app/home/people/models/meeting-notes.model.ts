@@ -1,4 +1,5 @@
 export interface MeetingNotes {
+    date: string;
     personId: string;
     notesId?: string;
     comments: string;

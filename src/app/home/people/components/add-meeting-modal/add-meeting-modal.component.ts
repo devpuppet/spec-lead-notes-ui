@@ -1,10 +1,11 @@
 import { Component, Inject, OnDestroy, Optional } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { YesNoToBooleanMapper } from 'src/app/shared/mappers/yes-no.mapper';
 import { AttritionRisk, MeetingNotes, YesNo } from '../../models/meeting-notes.model';
 import { PersonService } from '../../services/person.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-modal',
@@ -13,6 +14,7 @@ import { PersonService } from '../../services/person.service';
 })
 export class AddMeetingModalComponent implements OnDestroy {
 
+  private static readonly DATE_FORMAT = 'MM/DD/YYYY';
   meetingForm: FormGroup;
   cdkAutosizeMinRows = 1;
   cdkAutosizeMaxRows = 4;
@@ -32,6 +34,7 @@ export class AddMeetingModalComponent implements OnDestroy {
     @Optional() @Inject(MAT_DIALOG_DATA) protected personData: { id: string, name: string, unitId: string }
     ) {
     this.meetingForm = this.formBuilder.group({
+      date: ['', [Validators.required]],
       comments: [''],
       questions: [''],
       managerActionItems: [''],
@@ -48,6 +51,11 @@ export class AddMeetingModalComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.addMeetingNotes$?.unsubscribe();
+  }
+
+  get date() {
+    const date: moment.Moment = this.meetingForm.get('date')!.value.date;
+    return date.format(AddMeetingModalComponent.DATE_FORMAT);
   }
 
   get comments() {
@@ -96,6 +104,7 @@ export class AddMeetingModalComponent implements OnDestroy {
 
   onSubmit() {
     const meetingNotes: MeetingNotes = {
+      date: this.date,
       personId: this.personData.id,
       comments: this.comments,
       questions: this.questions,

@@ -5,14 +5,20 @@ import { AuthService } from "./services/auth/auth.service";
 import { AuthGuardService } from "./services/guards/auth-guard.service";
 import { YesNoPipe } from './pipes/yes-no.pipe';
 import { ErrorBoxComponent } from './components/error-box/error-box.component';
+import { DatepickerComponent } from './components/datepicker/datepicker.component';
+import { NgMaterialModule } from "../ng-material/ng-material.module";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
-    YesNoPipe,
-    ErrorBoxComponent
-  ],
+        YesNoPipe,
+        ErrorBoxComponent,
+        DatepickerComponent
+    ],
     imports: [
-        CommonModule
+        CommonModule,
+        NgMaterialModule,
+        ReactiveFormsModule
     ],
     providers: [
         AuthService,
@@ -24,7 +30,8 @@ import { ErrorBoxComponent } from './components/error-box/error-box.component';
     ],
     exports: [
         YesNoPipe,
-        ErrorBoxComponent
+        ErrorBoxComponent,
+        DatepickerComponent
     ]
 })
 export class SharedModule { }
