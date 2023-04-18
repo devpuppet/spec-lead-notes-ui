@@ -4,9 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy:local": "npm ci && npm run build && firebase emulators:start",
+    "deploy": "npm ci && npm run build && firebase deploy"
   },
   "private": true,
   "dependencies": {
