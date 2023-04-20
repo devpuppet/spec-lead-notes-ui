@@ -7,8 +7,8 @@
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy:local": "npm ci && npm run build && firebase emulators:start",
-    "deploy": "npm ci && npm run build && firebase deploy"
+    "deploy:local": "npm install && npm run build && firebase emulators:start",
+    "deploy": "npm install && npm run build && firebase deploy"
   },
   "private": true,
   "dependencies": {
