@@ -6,17 +6,21 @@ import { AuthData } from '../../models/auth.service.model';
 import { Store } from '@ngrx/store';
 import { setAuthDataAction, removeAuthDataAction } from 'src/app/login/store/login.actions';
 import { selectExpiration } from 'src/app/login/store/login.selectors';
+import { ConfigService } from 'src/app/core/services/config.service';
 
 @Injectable()
 export class AuthService implements OnDestroy {
 
-  private apiBaseUrl = 'http://localhost:3000';
+  private readonly apiBaseUrl;
   private expiration$?: Subscription;
 
   constructor(
     private http: HttpClient,
-    private store: Store
-  ) { }
+    private store: Store,
+    private configService: ConfigService
+  ) {
+    this.apiBaseUrl = this.configService.getApiBaseUrl();
+  }
 
   login(username: string, password: string): Observable<AuthData> {
     return this.http.post<any>(`${this.apiBaseUrl}/login`, { username, password }).pipe(
