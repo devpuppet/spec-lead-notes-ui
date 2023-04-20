@@ -1,0 +1,4 @@
+{
+    "debugging": true,
+    "apiBaseUrl": "http://localhost:3000"
+}
