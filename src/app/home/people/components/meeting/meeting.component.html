@@ -1,0 +1,53 @@
+<div class="container">
+    <dl class="row" *ngIf="meetingData.comments">
+        <dt class="col-sm-3">Comments</dt>
+        <dd class="col-sm-9">{{ meetingData.comments }}</dd>
+    </dl>
+
+    <dl class="row" *ngIf="meetingData.questions">
+        <dt class="col-sm-3">Questions</dt>
+        <dd class="col-sm-9">{{ meetingData.questions }}</dd>
+    </dl>
+
+    <dl class="row" *ngIf="meetingData.subordinateActionItems">
+        <dt class="col-sm-3">Their Action Items</dt>
+        <dd class="col-sm-9">{{ meetingData.subordinateActionItems }}</dd>
+    </dl>
+
+    <dl class="row" *ngIf="meetingData.importantAgreements">
+        <dt class="col-sm-3">Important Agreements</dt>
+        <dd class="col-sm-9">{{ meetingData.importantAgreements }}</dd>
+    </dl>
+
+    <dl class="row" *ngIf="meetingData.satisfaction">
+        <dt class="col-sm-3">Satisfaction</dt>
+        <dd class="col-sm-9">{{ meetingData.satisfaction }}</dd>
+    </dl>
+
+    <dl class="row" *ngIf="meetingData.plans">
+        <dt class="col-sm-3">Plans</dt>
+        <dd class="col-sm-9">{{ meetingData.plans }}</dd>
+    </dl>
+
+    <dl class="row" *ngIf="meetingData.feedback">
+        <dt class="col-sm-3">Feedback</dt>
+        <dd class="col-sm-9">{{ meetingData.feedback }}</dd>
+    </dl>
+
+    <dl class="row" *ngIf="meetingData.issues">
+        <dt class="col-sm-3">Issues</dt>
+        <dd class="col-sm-9">{{ meetingData.issues }}</dd>
+    </dl>
+
+    <dl class="row" *ngIf="meetingData.attritionRisk">
+        <dt class="col-sm-3">Attrition Risk</dt>
+        <dd class="col-sm-9">{{ meetingData.attritionRisk }}</dd>
+    </dl>
+
+    <dl class="row" *ngIf="meetingData.oneToOneReportSent">
+        <dt class="col-sm-3">1-1 Sent</dt>
+        <dd class="col-sm-9">{{ meetingData.oneToOneReportSent | yesNo }}</dd>
+    </dl>
+
+    <button mat-stroked-button color="primary" [routerLink]="['/people/meeting',meetingData.notesId]" [state]="meetingData">Edit</button>
+</div>

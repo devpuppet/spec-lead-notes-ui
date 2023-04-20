@@ -1,0 +1,11 @@
+<form [formGroup]="datepickerForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Meeting date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="date">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker
+    (input)="onTouched()"
+    (blur)="onTouched()"></mat-datepicker>
+  </mat-form-field>
+</form>

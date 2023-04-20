@@ -1,0 +1,16 @@
+<div>
+    <p class="h4" tooltip [data]="personData">{{ personData.name }}</p>
+    <div>
+        <ul class="list-inline">
+            <li *ngFor="let page of pagination.pages; let i = index" class="list-inline-item">
+                <button mat-button (click)="updatePageNumber(i)">{{ i + 1 }}</button>
+            </li>
+        </ul>
+    <div>
+    <ul class="list-group">
+        <li *ngFor="let meeting of pagination.pages[pagination.config.currentPageIndex].data" class="list-group-item">
+            <app-meeting [meetingData]="meeting"></app-meeting>
+        </li>
+    </ul>
+    <button mat-raised-button color="primary" (click)="openAddMeetingModal()">Add</button>
+</div>

@@ -1,0 +1,120 @@
+<div class="container">
+
+    <h3>Edit Meeting Notes</h3>
+    <form [formGroup]="meetingForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <div class="row">
+            <mat-form-field appearance="fill" class="col-sm-4">
+                <mat-label>Comments</mat-label>
+                <textarea matInput
+                cdkTextareaAutosize
+                [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+                [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+                formControlName="comments"></textarea>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill" class="col-sm-4">
+                <mat-label>Questions</mat-label>
+                <textarea matInput
+                cdkTextareaAutosize
+                [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+                [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+                formControlName="questions"></textarea>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill" class="col-sm-4">
+                <mat-label>My Action Items</mat-label>
+                <textarea matInput
+                cdkTextareaAutosize
+                [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+                [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+                formControlName="managerActionItems"></textarea>
+            </mat-form-field>
+        </div>
+        
+        <div class="row">
+            <mat-form-field appearance="fill" class="col-sm-4">
+                <mat-label>Their Action Items</mat-label>
+                <textarea matInput
+                cdkTextareaAutosize
+                [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+                [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+                formControlName="subordinateActionItems"></textarea>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill" class="col-sm-4">
+                <mat-label>Important Agreements</mat-label>
+                <textarea matInput
+                cdkTextareaAutosize
+                [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+                [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+                formControlName="importantAgreements"></textarea>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill" class="col-sm-4">
+                <mat-label>Satisfaction</mat-label>
+                <textarea matInput
+                cdkTextareaAutosize
+                [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+                [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+                formControlName="satisfaction"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="fill" class="col-sm-4">
+                <mat-label>Plans</mat-label>
+                <textarea matInput
+                cdkTextareaAutosize
+                [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+                [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+                formControlName="plans"></textarea>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill" class="col-sm-4">
+                <mat-label>Feedback</mat-label>
+                <textarea matInput
+                cdkTextareaAutosize
+                [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+                [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+                formControlName="feedback"></textarea>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill" class="col-sm-4">
+                <mat-label>Issues</mat-label>
+                <textarea matInput
+                cdkTextareaAutosize
+                [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+                [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+                formControlName="issues"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="fill" class="col-sm-4">
+                <mat-label>Attrition Risk</mat-label>
+                <mat-select formControlName="attritionRisk">
+                    <mat-option *ngFor="let attrition of attritionRiskValues" [value]="attrition">
+                    {{ attrition }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill" class="col-sm-4">
+                <mat-label>1-1 Sent</mat-label>
+                <mat-select formControlName="oneToOneReportSent">
+                    <mat-option *ngFor="let sent of ['Yes', 'No']" [value]="sent">
+                    {{ sent }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        
+        <div class="buttons">
+            <button mat-raised-button color="primary">Update</button>
+            <button mat-stroked-button color="basic" (click)="back()">Cancel</button>
+        </div>
+        
+    </form>
+
+</div>

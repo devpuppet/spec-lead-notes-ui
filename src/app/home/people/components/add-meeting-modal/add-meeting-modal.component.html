@@ -1,0 +1,108 @@
+<mat-dialog-content>
+    <h3>Add Meeting Notes for {{ personData.name }}</h3>
+    <form [formGroup]="meetingForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <app-datepicker formControlName="date"></app-datepicker>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Comments</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="comments"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Questions</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="questions"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>My Action Items</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="managerActionItems"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Their Action Items</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="subordinateActionItems"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Important Agreements</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="importantAgreements"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Satisfaction</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="satisfaction"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Plans</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="plans"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Feedback</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="feedback"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Issues</mat-label>
+            <textarea matInput
+            cdkTextareaAutosize
+            [cdkAutosizeMinRows]="cdkAutosizeMinRows"
+            [cdkAutosizeMaxRows]="cdkAutosizeMaxRows"
+            formControlName="issues"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Attrition Risk</mat-label>
+            <mat-select formControlName="attritionRisk">
+              <mat-option *ngFor="let attrition of attritionRiskValues" [value]="attrition">
+                {{ attrition }}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>1-1 Sent</mat-label>
+            <mat-select formControlName="oneToOneReportSent">
+              <mat-option *ngFor="let sent of ['Yes', 'No']" [value]="sent">
+                {{ sent }}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button [disabled]="!meetingForm.valid">Submit</button>
+    </form>
+</mat-dialog-content>
