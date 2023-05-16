@@ -4,9 +4,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { YesNoToBooleanMapper } from 'src/app/shared/mappers/yes-no.mapper';
 import { Location } from '@angular/common';
 import { debounceTime, switchMap } from 'rxjs';
-import { UnitsService } from '../../services/units.service';
 import { Store } from '@ngrx/store';
 import { selectUserId } from 'src/app/login/store/login.selectors';
+import { UnitsService } from 'src/app/home/services/units.service';
 
 @Component({
   selector: 'app-edit-meeting',

@@ -1,8 +1,9 @@
-import { CommonModule } from "@angular/common";
+import { CommonModule, DatePipe } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { CoreModule } from "../core/core.module";
 import { HomeComponent } from "./components/home/home.component";
 import { HomeRoutingModule } from "./home-routing.module";
+import { UnitsService } from "./services/units.service";
 
 @NgModule({
     declarations: [HomeComponent],
@@ -11,6 +12,6 @@ import { HomeRoutingModule } from "./home-routing.module";
         HomeRoutingModule,
         CoreModule
     ],
-    providers: [],
+    providers: [UnitsService, DatePipe],
 })
 export class HomeModule { }

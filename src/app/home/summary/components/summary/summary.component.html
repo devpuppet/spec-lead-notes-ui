@@ -1,1 +1,12 @@
-<p>summary works!</p>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Number of meetings</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let entry of history" scope="row">
+            <td>{{ entry.meetings.length }}</td>
+        </tr>
+    </tbody>
+</table>

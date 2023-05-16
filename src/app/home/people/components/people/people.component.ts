@@ -2,9 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription, of } from 'rxjs';
 import { Unit } from 'src/app/home/people/models/unit.model';
 import { ModalService } from '../../services/modal.service';
-import { UnitsService } from '../../services/units.service';
+
 import { Store } from '@ngrx/store';
 import { selectUserId } from 'src/app/login/store/login.selectors';
+import { UnitsService } from 'src/app/home/services/units.service';
 
 @Component({
   selector: 'app-people',
