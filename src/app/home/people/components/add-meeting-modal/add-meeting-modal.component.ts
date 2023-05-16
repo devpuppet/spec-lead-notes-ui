@@ -6,6 +6,7 @@ import { YesNoToBooleanMapper } from 'src/app/shared/mappers/yes-no.mapper';
 import { AttritionRisk, MeetingNotes, YesNo } from '../../models/meeting-notes.model';
 import { PersonService } from '../../services/person.service';
 import * as moment from 'moment';
+import { inputValidator } from 'src/app/shared/validators/field.validator';
 
 @Component({
   selector: 'app-modal',
@@ -35,7 +36,7 @@ export class AddMeetingModalComponent implements OnDestroy {
     ) {
     this.meetingForm = this.formBuilder.group({
       date: ['', [Validators.required]],
-      comments: [''],
+      comments: ['', null, [inputValidator]],
       questions: [''],
       managerActionItems: [''],
       subordinateActionItems: [''],
@@ -60,6 +61,10 @@ export class AddMeetingModalComponent implements OnDestroy {
 
   get comments() {
     return this.meetingForm.get('comments')!.value;
+  }
+
+  get commentsControl() {
+    return this.meetingForm.get("comments");
   }
 
   get questions() {

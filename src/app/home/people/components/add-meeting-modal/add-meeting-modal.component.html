@@ -13,6 +13,10 @@
             formControlName="comments"></textarea>
         </mat-form-field>
 
+        <div *ngIf="!commentsControl?.valid && (commentsControl?.dirty || commentsControl?.touched)">
+            <app-error-box *ngIf="commentsControl?.errors?.['validInput']" errorMessage="{{commentsControl?.errors?.['requiredValue']}}"></app-error-box>
+        </div>
+
         <mat-form-field appearance="fill">
             <mat-label>Questions</mat-label>
             <textarea matInput
@@ -104,5 +108,9 @@
         </mat-form-field>
 
         <button mat-raised-button [disabled]="!meetingForm.valid">Submit</button>
+        
+        <div *ngIf="!meetingForm.valid && (meetingForm.dirty || meetingForm.touched)">
+            <app-error-box errorMessage="Please fill required data"></app-error-box>
+        </div>
     </form>
 </mat-dialog-content>
