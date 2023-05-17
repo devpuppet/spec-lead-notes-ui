@@ -1,5 +1,6 @@
+<button mat-raised-button color="primary" (click)="addNewUnit()">Add new unit</button>
 <ul class="list-group">
-    <li *ngFor="let unit of ($units | async)" class="list-group-item">
+    <li *ngFor="let unit of units" class="list-group-item">
         <app-unit [unitData]="unit"></app-unit>
     </li>
 </ul>

@@ -1,5 +1,5 @@
 <div>
-    <p class="h4" tooltip [data]="personData">{{ personData.name }}</p>
+    <p class="h4" tooltip [data]="personData">{{ personData.name }} {{ runChangeDetection }}</p>
     <div>
         <ul class="list-inline">
             <li *ngFor="let page of pagination.pages; let i = index" class="list-inline-item">
