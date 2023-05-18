@@ -73,9 +73,7 @@ export class EditMeetingComponent implements OnInit {
           .flatMap(person => person.meetings)
           .find(meeting => meeting.notesId === this.notesId)!;
 
-        setTimeout(() => {
           this.questions.setValue(meetingData.questions);
-        })
       }
       );
   }
