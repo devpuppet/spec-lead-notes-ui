@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { AddMeetingModalComponent } from 'src/app/home/people/components/add-meeting-modal/add-meeting-modal.component';
 import { Person } from '../../models/unit.model';
 import { ModalService } from '../../services/modal.service';
@@ -6,7 +6,8 @@ import { ModalService } from '../../services/modal.service';
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
-  styleUrls: ['./person.component.css']
+  styleUrls: ['./person.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PersonComponent implements OnInit {
 
@@ -24,6 +25,11 @@ export class PersonComponent implements OnInit {
   }
 
   constructor(private modalService: ModalService) { }
+
+  get runChangeDetection() {
+    console.log('Person component - checking view');
+    return '';
+  }
 
   ngOnInit(): void {
     this.initializePagination();
